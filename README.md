@@ -1,4 +1,4 @@
-# ■■■■■ 開発環境の構築
+# ■ 開発環境の構築
 
 ## python
 
@@ -164,13 +164,13 @@ sendtoの場所 :  `C:\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\SendTo
   - 「タブレットモードでなく、キーボードが接続されていない場合に、タッチキーボードを表示する」
   - 多言語ヒント -> ヒントを表示する
 
-# ■■■■■ クラウドサービス
+# ■ クラウドサービス
 
 ## Github
 
 public repogitory ならwikiが使える
 
-# ■■■■■ コーディング
+# ■ コーディング
 
 ## pytorch
 
@@ -198,6 +198,10 @@ public repogitory ならwikiが使える
 - pythonは、pylint > pep8(ぺぺエイト) > flake8 (左ほど警告ルールが厳しい)
 - vscodeは、python拡張機能をインストールしたらpylintが入る
 - [pylint のメッセージを抑制する](https://qiita.com/stat/items/eb74bb26190759f87a05)
+
+### Markdown
+
+[書き方](https://qiita.com/shizuma/items/8616bbe3ebe8ab0b6ca1)
 
 ### cv2のインテリセンス
 
@@ -254,18 +258,18 @@ alias python='/mnt/c/Python/Python37/python.exe'
     ]
 ```
 
-# ■■■■■ エンターテイメント
+# ■ エンターテイメント
 
 - [Windows10パソコンにiTunesをインストールする方法](https://wifinomori.com/windows-itunes/)
 
-# ■■■■■ その他
+# ■ その他
 
 ## Excel
 
 - 100マス計算⇒ 複合参照 を使う  
 例)　```=$A2+B$1```
 
-# ■■■■■ Ubuntu
+# ■ Ubuntu
 
 ## [ワークスペース](https://www.pandanoir.info/entry/2018/02/21/193000)
 
@@ -288,7 +292,7 @@ alias python='/mnt/c/Python/Python37/python.exe'
 
 ## chrome インストール
 
-```terminal
+```shell
 sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo apt update
