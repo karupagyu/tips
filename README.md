@@ -175,6 +175,20 @@
     - [GRUBの起動順序の変更方法](https://qiita.com/OldS9l/items/dc84f8912fc3d86f646a)
     - [ソフトウェアとアップデート](https://plaza.rakuten.co.jp/shinshunomori/6011/)
 
+## 日本語への対応
+
+- [Japanese Teamのパッケージレポジトリを追加](https://www.ubuntulinux.jp/japanese)
+- 以下のコマンドを実行し、GPG鍵とレポジトリを追加
+
+    Ubuntu 20.04 LTSの場合:
+
+    ```shell
+    wget -q https://www.ubuntulinux.jp/ubuntu-ja-archive-keyring.gpg -O- | sudo apt-key add -
+    wget -q https://www.ubuntulinux.jp/ubuntu-jp-ppa-keyring.gpg -O- | sudo apt-key add -
+    sudo wget https://www.ubuntulinux.jp/sources.list.d/focal.list -O /etc/apt/sources.list.d/ubuntu-ja.list
+    sudo apt update
+    ```
+
 # ■ 開発環境の構築 (Ubuntu)
 
 ## python3.7
@@ -425,6 +439,13 @@ tipsリポジトリ内にディレクトリ移動
 
     このような表示が出る。  
     この場合、camno=4なので、cv2.VideoCapture(4) で画像取得できる
+
+## 利用できるWebカメラの情報を取得する
+
+- [参考HP](https://leico.github.io/TechnicalNote/Linux/webcam-usage)
+  
+  - `sudo apt install v4l-utils`
+  - `v4l2-ctl --list-devices`
 
 ## update-alternatives
 
