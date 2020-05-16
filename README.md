@@ -57,6 +57,7 @@
 
 ## VSCode
 
+- [ショートカット](http://kquoe2.hatenablog.com/entry/2019/03/07/081019)
 - [拡張機能 おすすめ](https://qiita.com/EbXpJ6bp/items/4b87a092a3d6a0ecf595)
 - [拡張機能 24 選](https://qiita.com/sensuikan1973/items/74cf5383c02dbcd82234)
 - [VS CodeでMarkdownをプレビューするには？](https://www.atmarkit.co.jp/ait/articles/1804/20/news030.html)  
