@@ -561,6 +561,50 @@ Windowsは WSLで使える。
         },
     ```
 
+### コーディング環境
+
+- [コーディング規約 (PEP8)](https://qiita.com/simonritchie/items/bb06a7521ae6560738a7)
+- [コード解析ツール](https://qiita.com/psychoroid/items/2c2acc06c900d2c0c8cb)
+  - 静的解析: flake8、自動整形: autopep8
+- 関数アノテーション
+  - 関数の引数に型指定しておくと、補完が効く
+- [Docstring](https://qiita.com/11ohina017/items/118b3b42b612e527dc1d)
+  - Google スタイル --> Sphinx　で ドキュメント生成
+  - vscode Docstring  """ を入力でスケルトン生成される
+
+- [型ヒント](https://docs.python.org/ja/3/library/typing.html)
+
+### vscode基本設定
+
+- setting.jsonを編集
+
+    ```json
+    {
+    //一部のみ記載
+
+    // マークダウン
+    "markdownlint.config": {
+        "single-title": false
+    },
+    "markdownShortcuts.icons.image": true,
+    "markdownShortcuts.icons.link": true,
+    "files.autoSave": "off",
+
+    // インテリセンス
+    "python.jediEnabled": false,
+    "editor.suggestSelection": "recentlyUsedByPrefix",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "python.linting.flake8Args": ["--ignore=E501"],
+    "python.formatting.autopep8Args": ["--ignore=E501"],
+    "path-autocomplete.extensionOnImport": true
+    //"editor.rulers": [80, 100], // 80,100列目に縦線を入れる
+    }
+    ```
+
 # ■ クラウドサービス
 
 ## Github
