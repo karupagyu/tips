@@ -282,7 +282,10 @@
 
 ## ショートカット
 
-- Super + D : 全てのウィンドウを最小化
+| ショートカット | 機能                               |
+| -------------- | ---------------------------------- |
+| Super + D      | 全てのウィンドウを最小化           |
+| Ctrl + L       | フォルダウィンドウをパス表示に変更 |
 
 ## [ワークスペース](https://www.pandanoir.info/entry/2018/02/21/193000)
 
@@ -309,8 +312,26 @@
     - 選択したい行をトリプルクリックすると、その行全体が選択されます。
 - ターミナルのカレントをファイルマネージャーで開く  
    `nautilus -w`
+  'Ricty Diminished'"
 
 # ■ Linux でインストールするパッケージ
+
+## 省電力ツール
+
+- `sudo apt install tlp`
+- `sudo tlp start`
+
+## Synaptic
+
+- Debian パッケージ管理システムである APT の GUI ツール
+- `sudo apt install synaptic`
+- `synaptic`で起動
+
+## 未使用パッケージの削除
+
+- `sudo apt autoclean`
+- `sudo apt clean`
+- `sudo apt autoremove`
 
 ## コーデック
 
@@ -319,6 +340,10 @@
 ## git
 
 - `sudo apt-get install git-all`
+
+### Gimp
+
+- `sudo apt install gimp`
 
 ## atom
 
@@ -507,11 +532,27 @@ Windows は WSL で使える。
 ## web アプリ開発ライブラリ
 
 - jQuery 簡単
-- React 本格的
 
-### GUI ツール
+  - ２つの利用方法
+    - ダウンロードしたファイルを読み込む
+    - [CDN を使用して読み込む](https://programmercollege.jp/column/9353/)
+
+- React 本格的
+- `Web 制作者のためのおすすめ Chrome 拡張 15` で検索
+
+## GUI ツール
 
 - PyQt (パイキュート) : Qt という C++の GUI ツールキットを Python で使えるようにしたもの
+
+## アノテーションツール
+
+- [VoTT](https://github.com/microsoft/VoTT)
+
+  - [VoTT v2.1.0 を使用して画像のアノテーション（教師データの作成）を行う](https://qiita.com/clerk67/items/8e7207284037dcf1f9ec)
+
+- labelingImg
+  - [Annotation ツール比較：labelImg と VoTT](https://www.nakasha.co.jp/future/ai/annotation_tool.html)
+  - 動画は vott がよい yolo 形式にするのが大変？
 
 ## yield
 
@@ -522,6 +563,18 @@ Windows は WSL で使える。
 
 - [スクレイピングを行う前に確認すること](https://tech-camp.in/note/technology/48812/)
 - [Web スクレイピング前に確認すべき 10 問](https://note.com/octoparsejapan/n/n4101e2260003)
+
+## BeatuifulSoup
+
+- 使用例
+
+  ```python
+  r = requests.get(url)
+  soup= BeautifulSoup(r.text,"html.parser")
+  soup.select('.tile')[0].string
+  ```
+
+## FlikerAPI
 
 ## pytorch
 
@@ -535,12 +588,36 @@ Windows は WSL で使える。
 
 - [VS Code による Python 開発環境のテンプレ](https://qiita.com/kazetof/items/870d47d8f6b961e78acc)
 
+### 改行コードの一括置換
+
+- [参考 HP](https://qiita.com/June8715/items/24307ee467baee51387e)
+
 ### コード上での path の書き方
 
 - [パスの書き方色々](https://qiita.com/ymdymd/items/d758110d429f72bc10fb)
 - [Python で import の対象ディレクトリのパスを確認・追加](https://note.nkmk.me/python-import-module-search-path/)
 - カレントディレクトリを import 対象に追加(コードの先頭に書く)  
   `sys.path.append(os.getcwd())`
+
+### vscode デバッグ構成ファイル(launch.json) の編集
+
+- デバッグ ⇒ 実行 ⇒ 構成を開く
+- 定義済み変数を使うと、楽にパスを設定できる  
+  [このページ内](https://qiita.com/ShortArrow/items/dc0c8cacd696154510f1) の引用元 vscode 公式ページに詳しく書かれている
+- `Ctrl + Space` で設定可能な属性候補を表示
+
+```json
+"configurations": [
+  {
+    //アクティブなファイルを実行する
+    "program": "${file}",
+    // 実行時のカレントディレクトリを変更する
+    "cwd": "${workspaceFolder}/hogedir/hogedir",
+    // オプション引数を設定する
+    "args": [ "--modelpath", "******.pth", "--config", "*****.json" ]
+  }
+]
+```
 
 ### lint(リント)
 
@@ -558,23 +635,23 @@ Windows は WSL で使える。
 - vscode の拡張機能 Markdownlint を使おう。書き方を自然と覚えます。
 - 無視させたい警告は、 setting.json に下記例のように編集する
 
-  ```json
-  "markdownlint.config": {
-          "single-title" : false
-      },
-  ```
+```json
+"markdownlint.config": {
+        "single-title" : false
+    },
+```
 
 ### コーディング環境
 
 - [コーディング規約 (PEP8)](https://qiita.com/simonritchie/items/bb06a7521ae6560738a7)
 - [コード解析ツール](https://qiita.com/psychoroid/items/2c2acc06c900d2c0c8cb)
   - 静的解析: flake8、自動整形: autopep8
-- 関数アノテーション
-  - 関数の引数に型指定しておくと、補完が効く
 - [Docstring](https://qiita.com/11ohina017/items/118b3b42b612e527dc1d)
   - Google スタイル --> Sphinx 　で ドキュメント生成
   - vscode Docstring """ を入力でスケルトン生成される
 - [型ヒント](https://docs.python.org/ja/3/library/typing.html)
+- 関数アノテーション
+  - 関数の引数に型指定しておくと、補完が効く
 
 ### vscode 基本設定
 
@@ -607,6 +684,11 @@ Windows は WSL で使える。
   }
   ```
 
+## jupyter-notebook
+
+- [vscode コマンドパレットで起動](https://dev.classmethod.jp/articles/visual-studio-code-jupyter-notebook/)
+  - `Python: Create Blank New Jupyter Notebook`
+
 # ■ クラウドサービス
 
 ## Github
@@ -627,3 +709,7 @@ public repogitory なら wiki が使える
 
 - 100 マス計算 ⇒ 複合参照 を使う  
   例)　`=$A2+B$1`
+
+## google 検索
+
+- "　"で囲むキーワードは、必ず検索結果に含まれる
