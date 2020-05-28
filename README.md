@@ -92,20 +92,6 @@
   3. LOCAL 側で install を促されている拡張機能を install->vscode 再起動
   4. vscode->拡張機能->WSL:UBUNTU-18.04 に色々 install 済になる
 
-### [VSCode でデバッガに引数を渡す方法](https://www.kabegiwablog.com/entry/2019/10/13/100000)
-
-1. 実行->構成の追加-> launch.json が開く
-1. そこに"args":["--name", "hoge"],のように引数入力
-1. オプション付き引数を複数指定する場合、一行ずつ args:を追加
-
-   ```python
-   "args": [
-       "${file}," // 追加(アクティブなファイルのパス)
-       100,
-       "hoge"
-       ]
-   ```
-
 ## Terminal
 
 - [ColorTool を使ってコンソールを見やすくする](https://qiita.com/yoshikingt/items/21d9e3fb8b8f22ab3476)
@@ -601,7 +587,7 @@ Windows は WSL で使える。
 
 ### vscode デバッグ構成ファイル(launch.json) の編集
 
-- デバッグ ⇒ 実行 ⇒ 構成を開く
+- 実行 ⇒ 構成を開く ⇒ launch.json が開く
 - 定義済み変数を使うと、楽にパスを設定できる  
   [このページ内](https://qiita.com/ShortArrow/items/dc0c8cacd696154510f1) の引用元 vscode 公式ページに詳しく書かれている
 - `Ctrl + Space` で設定可能な属性候補を表示
@@ -707,7 +693,7 @@ public repogitory なら wiki が使える
 
 ## Excel
 
-- 100 マス計算 ⇒ 複合参照 を使う  
+- 100 マス計算 ⇒ 複合参照 を使う
   例)　`=$A2+B$1`
 
 ## google 検索
