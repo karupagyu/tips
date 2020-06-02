@@ -642,6 +642,7 @@ Windows は WSL で使える。
 - [型ヒント](https://docs.python.org/ja/3/library/typing.html)
 - 関数アノテーション
   - 関数の引数に型指定しておくと、補完が効く
+- [mypy](https://mypy.readthedocs.io/en/stable/common_issues.html)
 
 ### vscode 基本設定
 
@@ -665,6 +666,7 @@ Windows は WSL で使える。
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
+    "python.linting.mypyEnabled": true,
     "editor.formatOnType": true,
     "editor.formatOnSave": true,
     "python.linting.flake8Args": ["--ignore=E501"],
@@ -674,10 +676,38 @@ Windows は WSL で使える。
   }
   ```
 
+### 関数変数の命名
+
+- [便利なページ](https://nelog.jp/programming-words)
+- [よく使う英単語](https://qiita.com/Ted-HM/items/7dde25dcffae4cdc7923)
+- [よく使う英単語まとめ](https://arakan-pgm-ai.hatenablog.com/entry/2019/04/15/000000)
+
 ## jupyter-notebook
 
 - [vscode コマンドパレットで起動](https://dev.classmethod.jp/articles/visual-studio-code-jupyter-notebook/)
   - `Python: Create Blank New Jupyter Notebook`
+
+### numpy.view によるサブクラス化
+
+- [参考元](https://numpy.org/doc/stable/user/basics.subclassing.html#module-numpy.doc.subclassing)
+
+### flask
+
+- [Flask 基本](https://tanuhack.com/category/python/flask/)
+- [サンプルコード 1](https://github.com/akmamun/camera-live-streaming)
+- [サンプルコード 2](https://medium.com/datadriveninvestor/video-streaming-using-flask-and-opencv-c464bf8473d6)
+
+- [ここで](https://blog.miguelgrinberg.com/post/video-streaming-with-flask/page/10) ジェネレーター関数が複数の結果を順番に返すことができることがわかります。Flask は、ジェネレーター関数のこの特性を使用してストリーミングを実装します。
+
+- Live Streaming コード解説
+  - [1](https://qiita.com/sti320a/items/3cdafb737d2c16fbaa51)
+  - [2](https://qiita.com/Gyutan/items/1f81afacc7cac0b07526)
+- これからは fastapi
+
+### MessagePack for Python
+
+- `pip install -U msgpack-python`
+- `pip install msgpack-numpy`
 
 # ■ クラウドサービス
 
