@@ -61,11 +61,15 @@
 - [ショートカット](http://kquoe2.hatenablog.com/entry/2019/03/07/081019)
 - [拡張機能 おすすめ](https://qiita.com/EbXpJ6bp/items/4b87a092a3d6a0ecf595)
 - [拡張機能 24 選](https://qiita.com/sensuikan1973/items/74cf5383c02dbcd82234)
-- [VS Code で Markdown をプレビューするには？](https://www.atmarkit.co.jp/ait/articles/1804/20/news030.html)  
-  ［プレビュー のセキュリティ設定を変更］：VS Code では安全でないコンテンツ（HTTPS を使用していない外部サイトにある画像ファイルへのリンク、スクリプトなど）を表示しないようになっているので、この設定を変更する。
+- [拡張機能 (web 系多め)](https://qiita.com/ri-zhi/items/1befd705600cc764359e)
 - インストール済み拡張機能一覧表示  
   `code --list-extensions | xargs -L 1 echo code --install-extension`
-- [インテリセンスが効かないときは、setting.json を編集する](https://qiita.com/kusanoiskuzuno/items/fc6a32ef32dd9500f746)
+- [Terminal カラーをカスタマイズするには？](https://glitchbone.github.io/vscode-base16-term/)
+- [Markdown をプレビューするには？](https://www.atmarkit.co.jp/ait/articles/1804/20/news030.html)  
+  ［プレビュー のセキュリティ設定を変更］：VS Code では安全でないコンテンツ（HTTPS を使用していない外部サイトにある画像ファイルへのリンク、スクリプトなど）を表示しないようになっているので、この設定を変更する。
+- [cv2 のインテリセンスが表示されないときは？](https://qiita.com/FXsimone/items/577e3924f40aa4a9d4ea)
+  - setting.json で pylint の引数に `--extension-pkg-whitelist=cv2` を設定する
+- [VSCode インテリセンスが効かないときは、setting.json を編集する](https://qiita.com/kusanoiskuzuno/items/fc6a32ef32dd9500f746)
 
   - 外部モジュールのパス指定
   - インテリセンスエンジン（jedi）を False にする
@@ -268,10 +272,11 @@
 
 ## ショートカット
 
-| ショートカット | 機能                               |
-| -------------- | ---------------------------------- |
-| Super + D      | 全てのウィンドウを最小化           |
-| Ctrl + L       | フォルダウィンドウをパス表示に変更 |
+| ショートカット   | 機能                               |
+| ---------------- | ---------------------------------- |
+| Super + D        | 全てのウィンドウを最小化           |
+| Ctrl + L         | フォルダウィンドウをパス表示に変更 |
+| Ctrl + Shift + T | ブラウザで最近閉じたタブの復元     |
 
 ## マウスの中クリックによる貼り付け無効化
 
@@ -395,11 +400,6 @@
   # codeのバージョン表示
   apt list code
   ```
-
-### cv2 のインテリセンス
-
-- [vscode で cv2 のインテリセンスを表示するされない問題](https://qiita.com/FXsimone/items/577e3924f40aa4a9d4ea)
-- setting.json で pylint の引数に `--extension-pkg-whitelist=cv2` を設定する
 
 ## snap 版パッケージ
 
@@ -650,29 +650,103 @@ Windows は WSL で使える。
 
   ```json
   {
-    //一部のみ記載
+    // Font..
+    "workbench.iconTheme": "vscode-icons",
+    "editor.fontSize": 12,
+    "editor.fontFamily": "Consolas, Meiryo, 'Courier New', monospace",
+    "window.zoomLevel": 0,
+    "terminal.integrated.shell.linux": "/usr/bin/bash",
+    "files.eol": "\n", // デフォルト改行コード LF
 
-    // マークダウン
+    // Indent, Spaces, Colors
+    "trailing-spaces.showStatusBarMessage": false,
+    "trailing-spaces.includeEmptyLines": false,
+    "trailing-spaces.logLevel": "log",
+    "editor.renderIndentGuides": false,
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // Markdown
     "markdownlint.config": {
       "single-title": false
+      //"ol-prefix" : false
     },
     "markdownShortcuts.icons.image": true,
     "markdownShortcuts.icons.link": true,
+    "instantmarkdown.autoOpenBrowser": false,
+    "markdown.preview.fontSize": 10,
+    "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif, 'Ricty Diminished'",
     "files.autoSave": "off",
 
-    // インテリセンス
+    // Select a color theme
+    // https://glitchbone.github.io/vscode-base16-term/
+    // [theme: Hopscotch]
+    "workbench.colorCustomizations": {
+      "terminal.background": "#322931",
+      "terminal.foreground": "#B9B5B8",
+      "terminalCursor.background": "#B9B5B8",
+      "terminalCursor.foreground": "#B9B5B8",
+      "terminal.ansiBlack": "#322931",
+      "terminal.ansiBlue": "#1290BF",
+      "terminal.ansiBrightBlack": "#797379",
+      "terminal.ansiBrightBlue": "#1290BF",
+      "terminal.ansiBrightCyan": "#149B93",
+      "terminal.ansiBrightGreen": "#8FC13E",
+      "terminal.ansiBrightMagenta": "#C85E7C",
+      "terminal.ansiBrightRed": "#DD464C",
+      "terminal.ansiBrightWhite": "#FFFFFF",
+      "terminal.ansiBrightYellow": "#FDCC59",
+      "terminal.ansiCyan": "#149B93",
+      "terminal.ansiGreen": "#8FC13E",
+      "terminal.ansiMagenta": "#C85E7C",
+      "terminal.ansiRed": "#DD464C",
+      "terminal.ansiWhite": "#B9B5B8",
+      "terminal.ansiYellow": "#FDCC59"
+    },
+
+    // 非表示にするファイル
+    "files.exclude": {
+      "**/.git": true,
+      "**/.vscode": true,
+      "**/__pycache__": true,
+      "**/.DS_Store": true,
+      "**/*.pyc": true,
+      "**/bin": true,
+      "**/*.o": true,
+      "**/*.obj": true,
+      "**/*.ilk": true,
+      "**/*.pdb": true,
+      "**/*.tlog": true,
+      "**/*.idb": true,
+      "**/*.dll": true
+    },
+
+    // Intellisense
     "python.jediEnabled": false,
     "editor.suggestSelection": "recentlyUsedByPrefix",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+    // Linting
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
-    "python.linting.mypyEnabled": true,
+    "python.linting.lintOnSave": true,
+    "editor.rulers": [100, 120], // 100,120列目に縦線を入れる
+    // "python.linting.flake8Args": ["--ignore=E501"],
+    "python.linting.flake8Args": ["--max-line-length=120"],
+    "python.formatting.autopep8Args": ["--ignore=E501"],
     "editor.formatOnType": true,
     "editor.formatOnSave": true,
-    "python.linting.flake8Args": ["--ignore=E501"],
-    "python.formatting.autopep8Args": ["--ignore=E501"],
-    "path-autocomplete.extensionOnImport": true
-    //"editor.rulers": [80, 100], // 80,100列目に縦線を入れる
+    "path-autocomplete.extensionOnImport": true,
+    "python.dataScience.sendSelectionToInteractiveWindow": true,
+    "vsintellicode.sql.completionsEnabled": false,
+    // Linting.mypy
+    "python.linting.mypyEnabled": true,
+    "python.linting.mypyArgs": [
+      "--ignore-missing-imports",
+      "--follow-imports=silent",
+      "--show-column-numbers",
+      "--cache-dir=/home/gachan/.cache/mypy_cache" // 設定しない場合、プロジェクト毎にキャッシュが生成される
+    ]
   }
   ```
 
@@ -702,7 +776,21 @@ Windows は WSL で使える。
 - Live Streaming コード解説
   - [1](https://qiita.com/sti320a/items/3cdafb737d2c16fbaa51)
   - [2](https://qiita.com/Gyutan/items/1f81afacc7cac0b07526)
-- これからは fastapi
+- これからは fastapi ?
+- flask の起動
+
+  - `http://127.0.0.1:5000/` だとローカル PC からしか接続できない
+  - `--host=0.0.0.0`だと、同じネットワーク内の全ての PC で Listen することができます。
+
+- flask を HTTPS 化する
+  - [HTTPS 化する場所のわかりやすい説明](https://python.ms/flask-via-tls/)
+  - [1](http://motojapan.hateblo.jp/entry/2017/12/14/083635#flask%E4%B8%8A%E3%81%A7HTTPS%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E8%B5%B7%E5%8B%95)
+  - [2](https://qiita.com/tomboyboy/items/122dfdb41188176e45b5)
+
+## WebRTC
+
+- [公式](https://webrtc.org/)
+- Firefox で動くが chorme で動かない場合、chrome に `chrome://flags/` と入力し必要な機能を Enable にする
 
 ### MessagePack for Python
 
