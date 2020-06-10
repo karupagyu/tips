@@ -68,7 +68,11 @@
 - [Markdown をプレビューするには？](https://www.atmarkit.co.jp/ait/articles/1804/20/news030.html)  
   ［プレビュー のセキュリティ設定を変更］：VS Code では安全でないコンテンツ（HTTPS を使用していない外部サイトにある画像ファイルへのリンク、スクリプトなど）を表示しないようになっているので、この設定を変更する。
 - [cv2 のインテリセンスが表示されないときは？](https://qiita.com/FXsimone/items/577e3924f40aa4a9d4ea)
-  - setting.json で pylint の引数に `--extension-pkg-whitelist=cv2` を設定する
+
+  - setting.json を編集  
+    `"python.linting.pylintArgs": ["--extension-pkg-whitelist=cv2"]` を追加  
+    `"python.linting.pylintEnabled": false` で OK
+
 - [VSCode インテリセンスが効かないときは、setting.json を編集する](https://qiita.com/kusanoiskuzuno/items/fc6a32ef32dd9500f746)
 
   - 外部モジュールのパス指定
@@ -83,9 +87,17 @@
     }
     ```
 
+- 不要な snippet の無効化
+  - 方法 1
+    - 拡張機能`python extended`を無効化する
+  - 方法 2
+    1. 拡張機能`Control Snippets`をインストール
+    2. コマンドパレットに control snippet と入力
+    3. python extended をオフ
+
 ### VSCode (Remote WSL)
 
-- **WSL / VirtualBox の linux 環境では GPU サポートしてない!**
+- **WSL / VirtualBox の linux 環境では GPU サポートしてない! (2020.04.01 時点)**
 - CPU 利用のみの linux 実行環境のアプリ開発をする場合は、  
   あると便利なので以下に情報を残しておく
 - [Remote Development を快適に使う トラブルシュート編](https://qiita.com/kaishuu0123/items/d16eca8e973fc4f0ad07)
@@ -725,6 +737,7 @@ Windows は WSL で使える。
     "python.jediEnabled": false,
     "editor.suggestSelection": "recentlyUsedByPrefix",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.linting.pylintArgs": ["--extension-pkg-whitelist=cv2"], // cv2インテリセンス有効化のため
 
     // Linting
     "python.linting.pylintEnabled": false,
@@ -732,6 +745,7 @@ Windows は WSL で使える。
     "python.linting.lintOnSave": true,
     "editor.rulers": [100, 120], // 100,120列目に縦線を入れる
     // "python.linting.flake8Args": ["--ignore=E501"],
+
     "python.linting.flake8Args": ["--max-line-length=120"],
     "python.formatting.autopep8Args": ["--ignore=E501"],
     "editor.formatOnType": true,
@@ -739,6 +753,7 @@ Windows は WSL で使える。
     "path-autocomplete.extensionOnImport": true,
     "python.dataScience.sendSelectionToInteractiveWindow": true,
     "vsintellicode.sql.completionsEnabled": false,
+
     // Linting.mypy
     "python.linting.mypyEnabled": true,
     "python.linting.mypyArgs": [
@@ -756,7 +771,7 @@ Windows は WSL で使える。
 - [よく使う英単語](https://qiita.com/Ted-HM/items/7dde25dcffae4cdc7923)
 - [よく使う英単語まとめ](https://arakan-pgm-ai.hatenablog.com/entry/2019/04/15/000000)
 
-## jupyter-notebook
+### jupyter-notebook
 
 - [vscode コマンドパレットで起動](https://dev.classmethod.jp/articles/visual-studio-code-jupyter-notebook/)
   - `Python: Create Blank New Jupyter Notebook`
@@ -787,7 +802,7 @@ Windows は WSL で使える。
   - [1](http://motojapan.hateblo.jp/entry/2017/12/14/083635#flask%E4%B8%8A%E3%81%A7HTTPS%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E8%B5%B7%E5%8B%95)
   - [2](https://qiita.com/tomboyboy/items/122dfdb41188176e45b5)
 
-## WebRTC
+### WebRTC
 
 - [公式](https://webrtc.org/)
 - Firefox で動くが chorme で動かない場合、chrome に `chrome://flags/` と入力し必要な機能を Enable にする
@@ -796,6 +811,36 @@ Windows は WSL で使える。
 
 - `pip install -U msgpack-python`
 - `pip install msgpack-numpy`
+
+### imutils
+
+- 基本的な画像処理関数を OpenCV の関数を組み合わせて作られたモジュール
+- [使い方](https://github.com/jrosebr1/imutils)
+
+# ■ 用語解説
+
+## npm
+
+- Node.js のパッケージを管理するもの。Node Package Manager の略
+
+## Node.js
+
+- JavaScript は本来クライアントサイドで動く言語で HTML で書かれたページに動きをつけたりするのに対して、Node.js はサーバサイドで動く JavaScript である。
+
+## react.js
+
+- JavaScript で書かれたライブラリ。react.js をインクルードして使う。
+  （MVC で言うところの）View のみを担当する。
+- JavaScript のコード中に（PHP の様に）「HTML タグ(っぽいもの)」を書ける。
+
+## tqdm
+
+- コンソールにプログレスバー表示できる python パッケージ
+
+## eel
+
+- GUI を HTML/CSS/JavaScript の WEB 技術で作ることができる Python の GUI ライブラリ
+- Electron ライクな GUI ライブラリで、Numpy や Pandas などデータ処理に秀でている
 
 # ■ クラウドサービス
 
