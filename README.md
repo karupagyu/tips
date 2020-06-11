@@ -844,6 +844,16 @@ Windows は WSL で使える。
 - プライベートで利用する分には無料プランで十分済むので、自分はプライベートでよく使っています。
 - [Heroku を使いこなす術](https://qiita.com/fuwamaki/items/f7752eb7a2727660239f)
 
+### リバースプロキシ
+
+- [参考元](https://www.kagoya.jp/howto/network/reverse-proxy/)
+  ![img](https://www.kagoya.jp/howto/wp-content/uploads/202004a05.png)
+  - **インターネットと Web サーバーの間に設置**
+    - インターネットからは、あたかも Web サーバーに直接アクセスしているかようになります。
+  - **Web サーバーを複数設置可能**
+    - 複数ある Web サーバーをリバースプロキシが振り分けるため、各 Web サーバーの負担が軽くなり、安定したサービスを継続して提供できます。
+  - **防御壁（ファイアウォール）として機能する**
+
 ## tqdm
 
 - コンソールにプログレスバー表示できる python パッケージ
