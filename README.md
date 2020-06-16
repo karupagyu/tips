@@ -293,6 +293,9 @@
 | Ctrl + Shift + I (Linux)          | コード整形                         |
 | Shift + Alt + F (Windows)         | コード整形                         |
 
+- [vscode 便利ショートカット1](https://qiita.com/TakahiRoyte/items/cdab6fca64da386a690b)
+- [vscode 便利ショートカット2](https://qiita.com/12345/items/64f4372fbca041e949d0)
+
 ## マウスの中クリックによる貼り付け無効化
 
 - Tweaks ⇒ キーボードとマウス ⇒ 中クリックによる貼り付け OFF
