@@ -956,3 +956,41 @@ public repogitory なら wiki が使える
 ## google 検索
 
 - "　"で囲むキーワードは、必ず検索結果に含まれる
+
+## vscode 拡張機能一覧
+
+```
+ode --install-extension alefragnani.Bookmarks
+code --install-extension alefragnani.project-manager
+code --install-extension bierner.markdown-preview-github-styles
+code --install-extension christian-kohler.path-intellisense
+code --install-extension codezombiech.gitignore
+code --install-extension CoenraadS.bracket-pair-colorizer
+code --install-extension DavidAnson.vscode-markdownlint
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension dbankier.vscode-instant-markdown
+code --install-extension donjayamanne.githistory
+code --install-extension eamodio.gitlens
+code --install-extension esbenp.prettier-vscode
+code --install-extension felipecaputo.git-project-manager
+code --install-extension IBM.output-colorizer
+code --install-extension ionutvmi.path-autocomplete
+code --install-extension KevinRose.vsc-python-indent
+code --install-extension mdickin.markdown-shortcuts
+code --install-extension mechatroner.rainbow-csv
+code --install-extension mhutchie.git-graph
+code --install-extension MS-CEINTL.vscode-language-pack-ja
+code --install-extension ms-python.python
+code --install-extension ms-vscode.cpptools
+code --install-extension njpwerner.autodocstring
+code --install-extension ritwickdey.live-sass
+code --install-extension ritwickdey.LiveServer
+code --install-extension shardulm94.trailing-spaces
+code --install-extension shd101wyy.markdown-preview-enhanced
+code --install-extension spywhere.guides
+code --install-extension svipas.control-snippets
+code --install-extension tushortz.python-extended-snippets
+code --install-extension VisualStudioExptTeam.vscodeintellicode
+code --install-extension vscode-icons-team.vscode-icons
+code --install-extension yzhang.markdown-all-in-one
+```
