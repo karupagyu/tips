@@ -669,7 +669,7 @@ Windows は WSL で使える。
   ```json
   {
     // Font..
-    "workbench.iconTheme": "vscode-icons",
+    // "workbench.iconTheme": "vscode-icons",
     "editor.fontSize": 12,
     "editor.fontFamily": "Consolas, Meiryo, 'Courier New', monospace",
     "window.zoomLevel": 0,
@@ -681,13 +681,39 @@ Windows は WSL で使える。
     "trailing-spaces.includeEmptyLines": false,
     "trailing-spaces.logLevel": "log",
     "editor.renderIndentGuides": false,
+    // HTML
     "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.tabSize": 2,
+      "editor.suggest.insertMode": "replace"
+    },
+    "html.format.enable": false,
+    "html.format.wrapAttributes": "auto",
+    "html.format.wrapLineLength": 0,
+    "html.format.contentUnformatted": "pre,code,textarea",
+    "html.format.endWithNewline": false,
+    "html.format.extraLiners": "head, body, /html",
+    "html.format.indentHandlebars": false,
+    "html.format.indentInnerHtml": false,
+    "html.format.maxPreserveNewLines": null,
+    "html.format.preserveNewLines": true,
+    "html.format.unformatted": "wbr",
+    "liveServer.settings.CustomBrowser": "chrome",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "liveServer.settings.donotVerifyTags": true,
+    // JS
+    "[javascript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     // Markdown
     "markdownlint.config": {
-      "single-title": false
+      "single-title": true,
       //"ol-prefix" : false
+      "MD001": false,
+      "MD025": false
+    },
+    "[markdown]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "markdownShortcuts.icons.image": true,
     "markdownShortcuts.icons.link": true,
@@ -724,9 +750,8 @@ Windows は WSL で使える。
 
     // 非表示にするファイル
     "files.exclude": {
-      "**/.git": true,
-      "**/.vscode": true,
       "**/__pycache__": true,
+      "**/.git": true,
       "**/.DS_Store": true,
       "**/*.pyc": true,
       "**/bin": true,
@@ -739,29 +764,39 @@ Windows は WSL で使える。
       "**/*.dll": true
     },
 
+    "[python]": {
+      "editor.suggest.insertMode": "replace"
+    },
     // Intellisense
+    "python.languageServer": "Microsoft", // Noneだとインテリセンスが効かなくなる
     "python.jediEnabled": false,
     "editor.suggestSelection": "recentlyUsedByPrefix",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "python.linting.pylintArgs": ["--extension-pkg-whitelist=cv2"], // cv2インテリセンス有効化のため
 
     // Linting
+    "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.lintOnSave": true,
     "editor.rulers": [100, 120], // 100,120列目に縦線を入れる
+    "python.linting.pylintArgs": ["--extension-pkg-whitelist=cv2"], // cv2インテリセンスを有効化するため
     // "python.linting.flake8Args": ["--ignore=E501"],
-
-    "python.linting.flake8Args": ["--max-line-length=120"],
-    "python.formatting.autopep8Args": ["--ignore=E501"],
+    "python.linting.flake8Args": [
+      "--max-line-length=120",
+      "--ignore=E266,W504"
+    ],
+    // "python.formatting.autopep8Args": ["--ignore=E501"],
+    "[autopep8]": {
+      "E501": false,
+      "E402": false
+    },
     "editor.formatOnType": true,
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": true, // ショートカットを使いましょう ==> Shift + Alt + F (Windows)
     "path-autocomplete.extensionOnImport": true,
     "python.dataScience.sendSelectionToInteractiveWindow": true,
     "vsintellicode.sql.completionsEnabled": false,
-
     // Linting.mypy
-    "python.linting.mypyEnabled": true,
+    "python.linting.mypyEnabled": false,
     "python.linting.mypyArgs": [
       "--ignore-missing-imports",
       "--follow-imports=silent",
