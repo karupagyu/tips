@@ -724,7 +724,7 @@ Windows は WSL で使える。
 
     // Select a color theme
     // https://glitchbone.github.io/vscode-base16-term/
-    // [theme: Hopscotch]
+    // [Theme Name: Hopscotch]
     "workbench.colorCustomizations": {
       "terminal.background": "#322931",
       "terminal.foreground": "#B9B5B8",
@@ -780,16 +780,12 @@ Windows は WSL で使える。
     "python.linting.lintOnSave": true,
     "editor.rulers": [100, 120], // 100,120列目に縦線を入れる
     "python.linting.pylintArgs": ["--extension-pkg-whitelist=cv2"], // cv2インテリセンスを有効化するため
-    // "python.linting.flake8Args": ["--ignore=E501"],
     "python.linting.flake8Args": [
+      //"--ignore=E501",
       "--max-line-length=120",
-      "--ignore=E266,W504"
+      "--ignore=E402,E266,W504"
     ],
-    // "python.formatting.autopep8Args": ["--ignore=E501"],
-    "[autopep8]": {
-      "E501": false,
-      "E402": false
-    },
+    "python.formatting.autopep8Args": ["--ignore=E501,E402"],
     "editor.formatOnType": true,
     "editor.formatOnSave": true, // ショートカットを使いましょう ==> Shift + Alt + F (Windows)
     "path-autocomplete.extensionOnImport": true,
