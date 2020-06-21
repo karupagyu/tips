@@ -120,13 +120,12 @@
 - **インストール方法**
   - Microsoft Store から、Windows Terminal をインストール
 - **カレントディレクトリで起動する方法**
-
   - アドレスバーに `wt -d .` を入力
-
+- **ws に Git Bash を追加する方法**
+  - [ココ](https://qiita.com/yokra9/items/bdd0882268b308cf22ca) を参照
+  - `C:\\Program Files\\Git\\bin\\bash.exe --login -i` で色表示が可能
 - **WS の設定 (setting.json)**
-
   - 以下、デフォルトから追加した情報
-  - [WS で Git Bash を表示する方法](https://qiita.com/yokra9/items/bdd0882268b308cf22ca) -　 bash.exe は C:\\Program Files\\Git\\bin\\bash.exe --login -i
 
   ```json
     // Global
