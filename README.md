@@ -115,6 +115,88 @@
 - [vscode のターミナルで自動コピーする方法](https://teratail.com/questions/177087)
 - [WSL でマウス操作でコピー＆ペーストする方法](https://ex1.m-yabe.com/archives/3388)
 
+## Windows Terminal (ws)
+
+- **インストール方法**
+  - Microsoft Store から、Windows Terminal をインストール
+- **カレントディレクトリで起動する方法**
+
+  - アドレスバーに `wt -d .` を入力
+
+- **WS の設定 (setting.json)**
+
+  - 以下、デフォルトから追加した情報
+  - [WS で Git Bash を表示する方法](https://qiita.com/yokra9/items/bdd0882268b308cf22ca) -　 bash.exe は C:\\Program Files\\Git\\bin\\bash.exe --login -i
+
+  ```json
+    // Global
+    "initialCols": 100,
+    "initialRows": 25,
+
+    "profiles": {
+      "defaults": {
+        "fontSize": 9
+      },
+      "list": [
+        {
+          "name": "Windows PowerShell",
+          "colorScheme": "Campbell Powershell"
+        },
+        {
+          "name": "コマンド プロンプト",
+          "colorScheme": "Campbell"
+        },
+        {
+          "name": "Ubuntu-18.04",
+          "colorScheme": "Ubuntu"
+        },
+        {
+          "guid": "{db9c05bb-a391-4798-8bfc-3e14fbd74f4d}",
+          "name": "Git Bash",
+          "acrylicOpacity": 0.5,
+          "closeOnExit": true,
+          "colorScheme": "Campbell",
+          "commandline": "C:\\Program Files\\Git\\bin\\bash.exe --login -i",
+          "cursorColor": "#FFFFFF",
+          "cursorShape": "bar",
+          "fontFace": "consolas",
+          "historySize": 9001,
+          "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
+          "padding": "0, 0, 0, 0",
+          "snapOnInput": true,
+          "startingDirectory": "%USERPROFILE%",
+          "useAcrylic": true
+        },
+      ]
+    },
+
+    "schemes": [
+      {
+        // Ubuntu-like
+        "name": "Ubuntu",
+        "background": "#322931",
+        "foreground": "#B9B5B8",
+        "black": "#322931",
+        "blue": "#1290BF",
+        "brightBlack": "#797379",
+        "brightBlue": "#1290BF",
+        "brightCyan": "#149B93",
+        "brightGreen": "#8FC13E",
+        "brightPurple": "#C85E7C",
+        "brightRed": "#DD464C",
+        "brightWhite": "#FFFFFF",
+        "brightYellow": "#FDCC59",
+        "cyan": "#149B93",
+        "green": "#8FC13E",
+        "purple": "#C85E7C",
+        "red": "#DD464C",
+        "white": "#B9B5B8",
+        "yellow": "#FDCC59"
+      }
+    ]
+  }
+  ```
+
 ## サクラエディタ
 
 - [初期設定](https://proengineer.internous.co.jp/content/columnfeature/5348)
@@ -955,8 +1037,8 @@ public repogitory なら wiki が使える
 
 ## vscode 拡張機能一覧
 
-```
-ode --install-extension alefragnani.Bookmarks
+```bash
+code --install-extension alefragnani.Bookmarks
 code --install-extension alefragnani.project-manager
 code --install-extension bierner.markdown-preview-github-styles
 code --install-extension christian-kohler.path-intellisense
