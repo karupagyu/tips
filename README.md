@@ -57,6 +57,8 @@
 - [TortoiseGit セットアップ](https://qiita.com/SkyLaptor/items/6347f38c8c010f4d5bd2)
 - Git の設定確認
   - `git config --global -l`
+- Git の設定した値を削除
+  - `git config --global --unset core.sshcommand`
 
 ## VSCode
 
