@@ -55,6 +55,8 @@
 
 - [Git for Windows インストール](https://qiita.com/elu_jaune/items/280b4773a3a66c7956fe)
 - [TortoiseGit セットアップ](https://qiita.com/SkyLaptor/items/6347f38c8c010f4d5bd2)
+- Git の設定確認
+  - `git config --global -l`
 
 ## VSCode
 
@@ -125,6 +127,7 @@
   - [ココ](https://qiita.com/yokra9/items/bdd0882268b308cf22ca) を参照
   - `C:\\Program Files\\Git\\bin\\bash.exe --login -i` で色表示が可能
 - **WS の設定 (setting.json)**
+
   - 以下、デフォルトから追加した情報
 
   ```json
