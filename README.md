@@ -754,28 +754,41 @@ Windows は WSL で使える。
 
   ```json
   {
+    // Microsoft
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+
     // Font..
     // "workbench.iconTheme": "vscode-icons",
     "editor.fontSize": 12,
     "editor.fontFamily": "Consolas, Meiryo, 'Courier New', monospace",
     "window.zoomLevel": 0,
-    "terminal.integrated.shell.linux": "/usr/bin/bash",
     "files.eol": "\n", // デフォルト改行コード LF
+
+    // Terminal (on Windows)
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "terminal.integrated.automationShell.linux": "",
+    "terminal.integrated.automationShell.windows": "",
+    "terminal.integrated.fontSize": 12,
+    // Terminal (on Linux)
+    // "terminal.integrated.shell.linux": "/usr/bin/bash",
 
     // Indent, Spaces, Colors
     "trailing-spaces.showStatusBarMessage": false,
     "trailing-spaces.includeEmptyLines": false,
     "trailing-spaces.logLevel": "log",
     "editor.renderIndentGuides": false,
+
     // HTML
     "[html]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      //"editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.defaultFormatter": "HookyQR.beautify",
       "editor.tabSize": 2,
       "editor.suggest.insertMode": "replace"
     },
     "html.format.enable": false,
     "html.format.wrapAttributes": "auto",
-    "html.format.wrapLineLength": 0,
+    "html.format.wrapLineLength": 140,
     "html.format.contentUnformatted": "pre,code,textarea",
     "html.format.endWithNewline": false,
     "html.format.extraLiners": "head, body, /html",
@@ -789,7 +802,8 @@ Windows は WSL で使える。
     "liveServer.settings.donotVerifyTags": true,
     // JS
     "[javascript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+      //"editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.defaultFormatter": "HookyQR.beautify"
     },
     // Markdown
     "markdownlint.config": {
@@ -865,7 +879,17 @@ Windows は WSL で使える。
     "python.linting.flake8Enabled": true,
     "python.linting.lintOnSave": true,
     "editor.rulers": [100, 120], // 100,120列目に縦線を入れる
-    "python.linting.pylintArgs": ["--extension-pkg-whitelist=cv2"], // cv2インテリセンスを有効化するため
+    "python.linting.pylintArgs": [
+      "--disable",
+      "W0621,C0111,C0103",
+      "--indent-string=\"  \"",
+      "--indent-after-paren=\"  \"",
+      "--extension-pkg-whitelist",
+      "numpy",
+      "--generated-members",
+      "torch.*",
+      "--extension-pkg-whitelist=cv2" // cv2インテリセンスを有効化するため
+    ],
     "python.linting.flake8Args": [
       //"--ignore=E501",
       "--max-line-length=120",
@@ -884,9 +908,33 @@ Windows は WSL で使える。
       "--follow-imports=silent",
       "--show-column-numbers",
       "--cache-dir=/home/gachan/.cache/mypy_cache" // 設定しない場合、プロジェクト毎にキャッシュが生成される
-    ]
+    ],
+    "projectManager.git.baseFolders": ["C:/local"]
   }
   ```
+
+### アノテーションコメント
+
+- コメントにメタデータを付加するもの
+- コードの欠陥がわかりやすくなる
+
+  ```python
+  # TODO: 変数aがNoneの時、呼び出すときにエラーを吐くことの対応
+  ```
+
+- **よく使われる記法と意味**
+
+  |   記法    |                         意味                         |
+  | :-------: | :--------------------------------------------------: |
+  |   TODO:   |         あとで追加、修正するべき機能がある。         |
+  |  FIXME:   |        既知の不具合があるコード。修正が必要。        |
+  |   HACK:   | あまりきれいじゃないコード。リファクタリングが必要。 |
+  |   XXX:    |        危険！動くけどなぜうごくかわからない。        |
+  |  REVIEW:  |       意図した通りに動くか、見直す必要がある。       |
+  | OPTIMIZE: |        無駄が多く、ボトルネックになっている。        |
+  | CHANGED:  |            コードをどのように変更したか。            |
+  |   NOTE:   |          なぜ、こうなったという情報を残す。          |
+  | WARNING:  |                     注意が必要。                     |
 
 ### 関数変数の命名
 
@@ -947,6 +995,14 @@ Windows は WSL で使える。
 
 # ■ 用語解説
 
+### Web アプリケーション学習ロードマップ
+
+- [HP](https://qiita.com/mintak21/private/ee7ba51bacfc8e587df5)
+
+### Nginx(エンジンエックス)
+
+- web サーバー
+
 ### npm
 
 - Node.js のパッケージを管理するもの。Node Package Manager の略
@@ -1002,6 +1058,10 @@ Windows は WSL で使える。
   - また、HTTP よりも軽量なヘッダを扱うことから、通信コストが低く、よりリアルタイム性の高いプロトコルであると言えます。
   - そのため、利用例としては、複数の人と同時に対戦するゲームや SNS などリアルタイム性が求められるアプリケーションに多く見られます。
 
+- WebSocket のわかりやすい説明
+  - [記事 1](https://qiita.com/south37/items/6f92d4268fe676347160)
+  - [記事 2](https://clean-copy-of-onenote.hatenablog.com/entry/inrto_websocket)
+
 ### WSGI（ウィズギー）
 
 - [参考元](https://qiita.com/sti320a/items/828d7bceabea5f363ad1)
@@ -1044,10 +1104,12 @@ public repogitory なら wiki が使える
 ```bash
 code --install-extension alefragnani.Bookmarks
 code --install-extension alefragnani.project-manager
+code --install-extension austin.code-gnu-global
 code --install-extension bierner.markdown-preview-github-styles
 code --install-extension christian-kohler.path-intellisense
 code --install-extension codezombiech.gitignore
 code --install-extension CoenraadS.bracket-pair-colorizer
+code --install-extension CoenraadS.bracket-pair-colorizer-2
 code --install-extension DavidAnson.vscode-markdownlint
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension dbankier.vscode-instant-markdown
@@ -1055,16 +1117,25 @@ code --install-extension donjayamanne.githistory
 code --install-extension eamodio.gitlens
 code --install-extension esbenp.prettier-vscode
 code --install-extension felipecaputo.git-project-manager
+code --install-extension giflens.giflens
+code --install-extension HookyQR.beautify
 code --install-extension IBM.output-colorizer
 code --install-extension ionutvmi.path-autocomplete
 code --install-extension KevinRose.vsc-python-indent
+code --install-extension kisstkondoros.vscode-gutter-preview
 code --install-extension mdickin.markdown-shortcuts
 code --install-extension mechatroner.rainbow-csv
 code --install-extension mhutchie.git-graph
 code --install-extension MS-CEINTL.vscode-language-pack-ja
 code --install-extension ms-python.python
+code --install-extension ms-vscode-remote.remote-containers
+code --install-extension ms-vscode-remote.remote-ssh
+code --install-extension ms-vscode-remote.remote-ssh-edit
+code --install-extension ms-vscode-remote.remote-wsl
+code --install-extension ms-vscode-remote.vscode-remote-extensionpack
 code --install-extension ms-vscode.cpptools
 code --install-extension njpwerner.autodocstring
+code --install-extension oderwat.indent-rainbow
 code --install-extension ritwickdey.live-sass
 code --install-extension ritwickdey.LiveServer
 code --install-extension shardulm94.trailing-spaces
