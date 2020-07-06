@@ -621,6 +621,35 @@ Windows は WSL で使える。
   - Pipfile.lock を生成しないで仮想環境にパッケージインストール  
     `pipenv install --skip-lock`
 
+## venv
+
+- **python のバージョンを複数インストールした場合**
+
+  - `python` と入力した時のバージョンは、環境変数で上位に書いた バージョンになります。
+  - 環境変数にパスを通す python バージョンは、よく使う方を設定するか、パスを設定しないほうがいいでしょう。
+
+- **venv の使用法**
+
+  - `c/users/[usrname]/.virtualenvs` に py35env などの仮想環境を作っておくと、vscode で実行環境のリストに出てくるため便利です。
+
+  ```bash
+  # 1. 仮想環境の作成場所
+  cd c/users/[usrname]/.virtualenvs
+
+  # 2. バージョン指定した仮想環境の作成
+  py -3.5 -m venv py35env
+  py -3.7 -m venv py37env
+
+  # 3.1. 仮想環境の使用
+  source /c/Python/py35env/Scripts/activate
+
+  # 3. 2. vscodeでデバッグする場合:
+  # vscodeのステータスバーから環境選択 -> F5 デバッグ開始
+
+  # 4. 仮想環境の終了
+  deactivate
+  ```
+
 # ■ コーディング
 
 ## web アプリ開発ライブラリ
