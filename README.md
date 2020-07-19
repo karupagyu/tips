@@ -249,6 +249,21 @@
 - [WSL 上に X サーバをインストールして GUI を実現する（VcXsrv 編）](https://www.atmarkit.co.jp/ait/articles/1812/06/news040.html)
 - [Windows10 に VirtualBox と Ubuntu をインストール](https://qiita.com/pyon_kiti_jp/items/0be8ac17439abf418e48)
 
+## デスクトップ画面録画
+
+- **ffmpeg**
+
+  - https://ffmpeg.org/
+  - [verion 4.3](https://ffmpeg.zeranoe.com/builds/)
+
+- **ScreenToGif**
+
+  - https://www.screentogif.com/
+  - [使い方](https://www.gigafree.net/media/recording/ScreenToGif.html)
+
+- **AGDRec**
+  - [version 1.3.2](http://t-ishii.la.coocan.jp/download/AGDRec.html)
+
 # ■ Ubuntu インストール
 
 ## Dual Boot
