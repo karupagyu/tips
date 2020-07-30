@@ -126,8 +126,16 @@
 - **カレントディレクトリで起動する方法**
   - アドレスバーに `wt -d .` を入力
 - **ws に Git Bash を追加する方法**
+
   - [ココ](https://qiita.com/yokra9/items/bdd0882268b308cf22ca) を参照
   - `C:\\Program Files\\Git\\bin\\bash.exe --login -i` で色表示が可能
+
+- **画面分割**
+  分割方向 | ショートカット
+  ---------|----------|---------
+  右側に新しいペイン | ［Alt］＋［Shift］＋［+］キー
+  下側に新しいペイン | ［Alt］＋［Shift］＋［-］キー
+
 - **WS の設定 (setting.json)**
 
   - 以下、デフォルトから追加した情報
@@ -697,6 +705,12 @@ Windows は WSL で使える。
 - return 文でそのまま値を返す関数を作ったとします。一度に大きなリストが返ってくるような関数だと、たくさんのメモリを一度に消費してしまうことになります。
 - そのようなときは、yield を使う事でその莫大な量の戻り値を小分けにして返すことが出来ます。これによって関数の実行をその都度中断し、少量ずつデータを返す事でメモリの消費量を抑えることが出来るようになります。
 
+## CSS/JavaScript
+
+- vscode 拡張機能(Live Server / Live Sass Complier)
+- scss ファイルを live sass complier でコンパイルすると css が自動的に作られる
+- scss は css よりもわかりやすく記述できるが、sccs の記述方法を追加で覚えないといけない
+
 ## web スクレイピング
 
 - [スクレイピングを行う前に確認すること](https://tech-camp.in/note/technology/48812/)
@@ -798,34 +812,30 @@ Windows は WSL で使える。
 
   ```json
   {
-    // Microsoft
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
-
-    // Font..
-    // "workbench.iconTheme": "vscode-icons",
-    "editor.fontSize": 12,
-    "editor.fontFamily": "Consolas, Meiryo, 'Courier New', monospace",
+    ////////////// Font.. //////////////
     "window.zoomLevel": 0,
     "files.eol": "\n", // デフォルト改行コード LF
+    "editor.renderLineHighlight": "all",
+    // "workbench.iconTheme": "vscode-icons",
+    "workbench.editor.tabSizing": "shrink",
+    "editor.fontSize": 12.5,
+    "editor.fontFamily": "Consolas, Meiryo, 'Courier New', monospace",
+    // "editor.fontFamily": "Source Han Code ",
+    // "editor.fontFamily": "MeiryoKe_Gothic",
+    // "editor.fontFamily": "Ricty Diminished",
+    // "editor.fontFamily": "Source Han Code JP",
+    // "editor.fontWeight": "300",
+    // "editor.fontFamily": "Iosevka Medium, Migu 1M",
 
-    // Terminal (on Windows)
-    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-    "terminal.integrated.automationShell.linux": "",
-    "terminal.integrated.automationShell.windows": "",
-    "terminal.integrated.fontSize": 12,
-    // Terminal (on Linux)
-    // "terminal.integrated.shell.linux": "/usr/bin/bash",
-
-    // Indent, Spaces, Colors
+    ////////////// Indent, Spaces, Colors //////////////
     "trailing-spaces.showStatusBarMessage": false,
     "trailing-spaces.includeEmptyLines": false,
     "trailing-spaces.logLevel": "log",
+    "indentRainbow.errorColor": "rgba(128,32,32,0.4)",
     "editor.renderIndentGuides": false,
 
-    // HTML
+    ////////////// HTML //////////////
     "[html]": {
-      //"editor.defaultFormatter": "esbenp.prettier-vscode",
       "editor.defaultFormatter": "HookyQR.beautify",
       "editor.tabSize": 2,
       "editor.suggest.insertMode": "replace"
@@ -844,12 +854,12 @@ Windows は WSL で使える。
     "liveServer.settings.CustomBrowser": "chrome",
     "liveServer.settings.donotShowInfoMsg": true,
     "liveServer.settings.donotVerifyTags": true,
-    // JS
+    ////////////// JS //////////////
     "[javascript]": {
-      //"editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.defaultFormatter": "HookyQR.beautify"
+      "editor.defaultFormatter": "HookyQR.beautify",
+      "editor.suggest.insertMode": "replace"
     },
-    // Markdown
+    ////////////// Markdown //////////////
     "markdownlint.config": {
       "single-title": true,
       //"ol-prefix" : false
@@ -866,7 +876,17 @@ Windows は WSL で使える。
     "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif, 'Ricty Diminished'",
     "files.autoSave": "off",
 
-    // Select a color theme
+    ////////////// Terminal //////////////
+    // Terminal (on Windows)
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "terminal.integrated.automationShell.linux": "",
+    "terminal.integrated.automationShell.windows": "",
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.fontFamily": "Consolas, Meiryo, 'Courier New', monospace",
+    // Terminal (on Linux)
+    // "terminal.integrated.shell.linux": "/usr/bin/bash",
+
+    ////////////// Select a color theme //////////////
     // https://glitchbone.github.io/vscode-base16-term/
     // [Theme Name: Hopscotch]
     "workbench.colorCustomizations": {
@@ -892,7 +912,7 @@ Windows は WSL で使える。
       "terminal.ansiYellow": "#FDCC59"
     },
 
-    // 非表示にするファイル
+    ////////////// 非表示にするファイル //////////////
     "files.exclude": {
       "**/__pycache__": true,
       "**/.git": true,
@@ -908,44 +928,50 @@ Windows は WSL で使える。
       "**/*.dll": true
     },
 
+    ////////////// Intellisense //////////////
+    // "python.analysis.typeCheckingMode": "basic",
+    // "python.jediEnabled": false,
+    "python.languageServer": "Microsoft", // Noneだとインテリセンスが効かなくなる
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.suggestSelection": "recentlyUsedByPrefix",
+    "editor.snippetSuggestions": "bottom", // Snippets
+
     "[python]": {
       "editor.suggest.insertMode": "replace"
     },
-    // Intellisense
-    "python.languageServer": "Microsoft", // Noneだとインテリセンスが効かなくなる
-    "python.jediEnabled": false,
-    "editor.suggestSelection": "recentlyUsedByPrefix",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 
-    // Linting
+    ////////////// Linting //////////////
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.lintOnSave": true,
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true, // ショートカットを使いましょう ==> Shift + Alt + F (Windows)
     "editor.rulers": [100, 120], // 100,120列目に縦線を入れる
+    "path-autocomplete.extensionOnImport": true,
+    "python.dataScience.sendSelectionToInteractiveWindow": true,
+    "vsintellicode.sql.completionsEnabled": false,
+
+    ////////////// Linting. pylint //////////////
     "python.linting.pylintArgs": [
       "--disable",
       "W0621,C0111,C0103",
-      "--indent-string=\"  \"",
-      "--indent-after-paren=\"  \"",
+      // "--indent-string=\"  \"",
+      // "--indent-after-paren=\"  \"",
       "--extension-pkg-whitelist",
       "numpy",
       "--generated-members",
       "torch.*",
       "--extension-pkg-whitelist=cv2" // cv2インテリセンスを有効化するため
     ],
+    ////////////// Linting. flake8 //////////////
     "python.linting.flake8Args": [
       //"--ignore=E501",
       "--max-line-length=120",
       "--ignore=E402,E266,W504"
     ],
     "python.formatting.autopep8Args": ["--ignore=E501,E402"],
-    "editor.formatOnType": true,
-    "editor.formatOnSave": true, // ショートカットを使いましょう ==> Shift + Alt + F (Windows)
-    "path-autocomplete.extensionOnImport": true,
-    "python.dataScience.sendSelectionToInteractiveWindow": true,
-    "vsintellicode.sql.completionsEnabled": false,
-    // Linting.mypy
+    ////////////// Linting. mypy //////////////
     "python.linting.mypyEnabled": false,
     "python.linting.mypyArgs": [
       "--ignore-missing-imports",
@@ -953,7 +979,14 @@ Windows は WSL で使える。
       "--show-column-numbers",
       "--cache-dir=/home/gachan/.cache/mypy_cache" // 設定しない場合、プロジェクト毎にキャッシュが生成される
     ],
-    "projectManager.git.baseFolders": ["C:/local"]
+    ////////////// Project //////////////
+    "projectManager.git.baseFolders": ["C:/local"],
+
+    ////////////// Microsoft //////////////
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    ////////////// Live Share Code //////////////
+    "liveshare.presence": false
   }
   ```
 
@@ -962,9 +995,9 @@ Windows は WSL で使える。
 - コメントにメタデータを付加するもの
 - コードの欠陥がわかりやすくなる
 
-  ```python
-  # TODO: 変数aがNoneの時、呼び出すときにエラーを吐くことの対応
-  ```
+```python
+# TODO: 変数aがNoneの時、呼び出すときにエラーを吐くことの対応
+```
 
 - **よく使われる記法と意味**
 
