@@ -272,6 +272,11 @@
 - **AGDRec**
   - [version 1.3.2](http://t-ishii.la.coocan.jp/download/AGDRec.html)
 
+## thunderbird から Outlook の移行方法
+
+- "MailStore"アプリを使って、pst ファイルを作成する
+- [MailStore App の使い方](https://itojisan.xyz/%E3%83%91%E3%82%BD%E3%82%B3%E3%83%B3%E3%81%AE%E7%9F%A5%E8%AD%98/%E3%82%B5%E3%83%B3%E3%83%80%E3%83%BC%E3%83%90%E3%83%BC%E3%83%89%E3%81%AE%E7%A7%BB%E8%A1%8C/)
+
 # ■ Ubuntu インストール
 
 ## Dual Boot
