@@ -24,6 +24,13 @@
 - [NVIDIA CUDA ツールキット 10.1 のインストール（Windows 上）](https://www.kunihikokaneko.com/tools/win/cuda10.html)
 - [nvidia-smi コマンドの詳細ついて](https://qiita.com/miyamotok0105/items/1b34e548f96ef7d40370)
 
+## WSL2 + VcXsrv
+
+- [WSL2 を windows10 にインストール](https://www.teamxeppet.com/wsl2_win10_install/)
+- [WSL2 上の Ubuntu で最初にする作業](https://qiita.com/nab/items/18b5b6092ae0fc31a457)
+- [WSL2 ＋ VcXsrv で GUI アプリを動かす](https://astherier.com/blog/2020/08/run-gui-apps-on-wsl2/)
+- [WSL2 環境で Docker (Docker Desktop)](https://nodachisoft.com/common/jp/article/jp000033/)
+
 ## WSL
 
 - [WSL (Windows Subsystem for Linux)の基本メモ](https://qiita.com/rubytomato@github/items/fdfc0a76e848442f374e)
