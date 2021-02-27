@@ -29,7 +29,11 @@
 - [WSL2 を windows10 にインストール](https://www.teamxeppet.com/wsl2_win10_install/)
 - [WSL2 上の Ubuntu で最初にする作業](https://qiita.com/nab/items/18b5b6092ae0fc31a457)
 - [WSL2 ＋ VcXsrv で GUI アプリを動かす](https://astherier.com/blog/2020/08/run-gui-apps-on-wsl2/)
+- [Xlaunch をWindowsスタートアップに登録](https://qiita.com/Engr_Coal33/items/16a293a6855d02366c1c#3-xlaunch%E3%81%AE%E8%B5%B7%E5%8B%95)
 - [WSL2 環境で Docker (Docker Desktop)](https://nodachisoft.com/common/jp/article/jp000033/)
+- powershell上で使うコマンド
+  - wsl.exe --shutdown
+  - wsl -l -v
 
 ## WSL
 
