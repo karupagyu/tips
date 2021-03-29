@@ -34,6 +34,8 @@
 - powershell上で使うコマンド
   - wsl.exe --shutdown
   - wsl -l -v
+  - wsl --unregister Ubuntu-18.04 # 削除
+  - wsl --set-default <DIST_NAME>　# 規定ディストリビューションの指定
 
 ## WSL
 
